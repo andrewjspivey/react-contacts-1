@@ -1,38 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 
-class ContactCreateForm extends React.Component {
+
+function ContactCreateForm(props) {
     
-    constructor(props) {
-        super(props);
+    const [firstName, setFirstname] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [email, setEmail] = useState('')
+    const [address, setAdress] = useState('')
+    const [profilePic, setProfilePic] = useState('')
 
-        this.state = {
-            firstName: '',
-            lastName: '',
-            phoneNumber: '',
-            email: '',
-            address: '',
-            profilePic: '',
-        };
+    
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    function handleFirstNameChange(event) {
+        setFirstname(event.target.value)
+    }
+    function handleLastnameChange(event) {
+        setLastName(event.target.value)
+    }
+    function handlePhoneChange(event) {
+        setPhoneNumber(event.target.value)
+    }
+    function handleEmailChange(event) {
+        setEmail(event.target.value)
+    }
+    function handleAddressChange(event) {
+        setAdress(event.target.value)
+    }
+    function handleProfilePicChange(event) {
+        setProfilePic(event.target.value)
     }
 
-    handleInputChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-    }
-
-    handleFormSubmit(event) {
+    function handleFormSubmit(event) {
         event.preventDefault();
     }
 
-    render() {
         return (
-            <form onSubmit={this.handleFormSubmit}>
+            <form onSubmit={handleFormSubmit}>
                 <div>
-                    <img src={this.state.profilePic} alt="Profile preview." />
+                    <img src={profilePic} alt="Profile preview." />
                 </div>
                 <div>
                     <div>
@@ -40,8 +46,8 @@ class ContactCreateForm extends React.Component {
                             type="text"
                             placeholder="First Name"
                             name="firstName"
-                            value={this.state.firstName}
-                            onChange={this.handleInputChange}
+                            value={firstName}
+                            onChange={handleFirstNameChange}
                         />
                     </div>
                     <div>
@@ -49,8 +55,8 @@ class ContactCreateForm extends React.Component {
                             type="text"
                             placeholder="Last Name"
                             name="lastName"
-                            value={this.state.lastName}
-                            onChange={this.handleInputChange}
+                            value={lastName}
+                            onChange={handleLastnameChange}
                         />
                     </div>
                     <div>
@@ -58,8 +64,8 @@ class ContactCreateForm extends React.Component {
                             type="tel"
                             placeholder="Phone Number"
                             name="phoneNumber"
-                            value={this.state.phoneNumber}
-                            onChange={this.handleInputChange}
+                            value={phoneNumber}
+                            onChange={handleLastnameChange}
                         />
                     </div>
                     <div>
@@ -67,8 +73,8 @@ class ContactCreateForm extends React.Component {
                             type="email"
                             placeholder="Email"
                             name="email"
-                            value={this.state.email}
-                            onChange={this.handleInputChange}
+                            value={email}
+                            onChange={handleEmailChange}
                         />
                     </div>
                     <div>
@@ -76,8 +82,8 @@ class ContactCreateForm extends React.Component {
                             type="text"
                             placeholder="Address"
                             name="address"
-                            value={this.state.address}
-                            onChange={this.handleInputChange}
+                            value={address}
+                            onChange={handleAddressChange}
                         />
                     </div>
                     <div>
@@ -85,8 +91,8 @@ class ContactCreateForm extends React.Component {
                             type="text"
                             placeholder="Profile Picture Url"
                             name="profilePic"
-                            value={this.state.profilePic}
-                            onChange={this.handleInputChange}
+                            value={profilePic}
+                            onChange={handleProfilePicChange}
                         />
                     </div>
                     <div>
@@ -96,6 +102,6 @@ class ContactCreateForm extends React.Component {
             </form>
         )
     }
-}
+
 
 export default ContactCreateForm;

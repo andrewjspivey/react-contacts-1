@@ -1,33 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class RegisterForm extends React.Component {
+function RegisterForm() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            username: '',
-            password: '',
-        }
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    function handleUsernameChange(event) {
+        setUsername(event.target.value)
     }
 
-    handleInputChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
+    function handlePasswordChange(event) {
+        setPassword(event.target.value)
     }
 
-    handleFormSubmit(event) {
+    function handleFormSubmit(event) {
         event.preventDefault();
         
     }
 
-    render() {
+
         return (
-            <form onSubmit={this.handleFormSubmit}>
+            <form onSubmit={handleFormSubmit}>
                 <div>
                     <label htmlFor="username">Username</label>
                     <input 
@@ -35,8 +29,8 @@ class RegisterForm extends React.Component {
                         name="username"
                         type="text" 
                         placeholder="Username"  
-                        value={this.state.username}
-                        onChange={this.handleInputChange}
+                        value={username}
+                        onChange={handleUsernameChange}
                     />
                 </div>
                 <div>
@@ -46,8 +40,8 @@ class RegisterForm extends React.Component {
                         name="password"
                         type="password" 
                         placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
+                        value={password}
+                        onChange={handlePasswordChange}
                     />
                 </div>
                 <div>
@@ -56,6 +50,6 @@ class RegisterForm extends React.Component {
             </form>
         )
     }
-}
+
 
 export default RegisterForm;

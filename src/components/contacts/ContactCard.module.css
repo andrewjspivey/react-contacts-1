@@ -1,0 +1,43 @@
+.button {
+    text-align: center;
+    margin: auto;
+}
+
+.info {
+    text-align: left;
+    margin: auto;
+    margin-right: 10rem;
+}
+
+.container {
+    margin: 3rem auto;
+    align-items: center;
+    height: 200px;
+    justify-content: space-between;
+    
+}
+
+.row {
+    display: flex;
+    box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.3);
+    max-width: 75%;
+    background-color: white;
+    align-items: center;
+    margin: auto !important;
+    margin-top: 3rem !important;
+
+
+}
+
+.img {
+    vertical-align: middle;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-height: 1px;
+}
+
+.img img{
+    display: flex;
+    border-radius: 50%;
+    width: 150px;
+}

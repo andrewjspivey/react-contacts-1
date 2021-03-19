@@ -1,46 +1,57 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
-function LoginForm(props)  {
-    const [userName, setUserName] = useState('')
-    const [password, setPassword] = useState('')
-    
+import AuthContext from '../../contexts/AuthContext';
 
-    function handleUserNameChange(event) {
-        setUserName(event.target.value)
+class LoginForm extends React.Component {
+
+    static contextType = AuthContext;
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: '',
+        };
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
+
     }
 
-    function handlePasswordChange(event) {
-        setPassword(event.target.value)
+    handleInputChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
     }
 
-    function handleFormSubmit(event) {
+    handleFormSubmit(event) {
         event.preventDefault();
-        
+        this.context.login(this.state.username, this.state.password);
     }
 
-
+    render() {
         return (
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={this.handleFormSubmit}>
                 <div>
                     <label htmlFor="username">Username</label>
-                    <input 
+                    <input
                         id="username"
                         name="username"
-                        type="text" 
-                        placeholder="Username"  
-                        value={userName}
-                        onChange={handleUserNameChange}
+                        type="text"
+                        placeholder="Username"
+                        value={this.state.username}
+                        onChange={this.handleInputChange}
                     />
                 </div>
                 <div>
                     <label htmlFor="password">Password</label>
-                    <input 
+                    <input
                         id="password"
                         name="password"
-                        type="password" 
+                        type="password"
                         placeholder="Password"
-                        value={password}
-                        onChange={handlePasswordChange}
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
                     />
                 </div>
                 <div>
@@ -49,6 +60,6 @@ function LoginForm(props)  {
             </form>
         )
     }
-
+}
 
 export default LoginForm;

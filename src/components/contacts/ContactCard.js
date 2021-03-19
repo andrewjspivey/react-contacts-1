@@ -1,12 +1,17 @@
-import styled from 'styled-components'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import styled from 'styled-components';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import styles from './ContactCard.module.css';
+import { useContext } from 'react';
+import ContactContext from '../../contexts/ContactContext';
 
 
 
-const ContactCard = ({ firstName='', lastName='', phoneNumber='', profilePic='' }) => {
+const ContactCard = ({ id, firstName='', lastName='', phoneNumber='', profilePic='', onClick }) => {
+    
+    const { removeContact } = useContext(ContactContext)
+    
     return (
         <Container className={styles.container}>
             <Row className={styles.row}>
@@ -18,7 +23,7 @@ const ContactCard = ({ firstName='', lastName='', phoneNumber='', profilePic='' 
                 <p>{phoneNumber}</p>
             </Col>
             <Col className={styles.button}>
-                <button className="rounded-circle font-weight-bold">x</button>
+                <button className="rounded-circle font-weight-bold" onClick={() => removeContact(id)}>X</button>
             </Col>
             </Row>
         </Container>

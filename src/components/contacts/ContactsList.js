@@ -1,5 +1,8 @@
-import ContactCard from "./ContactCard"
+import { useContext } from 'react';
+import { useHistory } from 'react-router';
 import styled from "styled-components";
+import ContactContext from '../../contexts/ContactContext';
+import ContactCard from "./ContactCard"
 
 const ContactListContainer = styled.div`
     width: 80%;
@@ -7,16 +10,21 @@ const ContactListContainer = styled.div`
     background-color: lightgrey;
 `;
 
-const ContactList = ({ contacts=[] }) => {
+const ContactList = () => {
+
+    const { contacts } = useContext(ContactContext);
+    const history = useHistory();
+
     return (
         <ContactListContainer>
-            {contacts.map((contact) => 
+            {contacts.map((contact, index) => 
                 <ContactCard 
                     key={contact.id}
                     firstName={contact.firstName} 
                     lastName={contact.lastName} 
                     phoneNumber={contact.phoneNumber} 
                     profilePic={contact.profilePic}
+                    onClick={() => history.push(`/contacts/${index}`)}
                 />
             )}
         </ContactListContainer>

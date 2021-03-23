@@ -34,7 +34,7 @@ const ContactProvider = ({ children }) => {
 
     return (
         <ContactContext.Provider value={{ contacts, addContact: addNewContact, removeContact: removeContactById }}>
-            { children}
+            {children}
         </ContactContext.Provider>
     );
 }

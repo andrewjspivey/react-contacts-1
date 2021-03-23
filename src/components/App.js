@@ -8,6 +8,7 @@ import ContactDetailsPage from "./contact-details";
 import ContactCreatePage from "./contact-create";
 import ContactProvider from '../contexts/providers/ContactProvider'
 import AuthProvider from "../contexts/providers/AuthProvider";
+import ContactContext from "../contexts/ContactContext";
 
 
 

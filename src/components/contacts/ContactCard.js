@@ -13,7 +13,7 @@ const ContactCard = ({ id, firstName='', lastName='', phoneNumber='', profilePic
     const { removeContact } = useContext(ContactContext)
     
     return (
-        <Container className={styles.container}>
+        <Container className={styles.container} onClick={onClick}>
             <Row className={styles.row}>
             <Col className={styles.img}>
                 <img src={profilePic} alt={`Profile of ${firstName} ${lastName}.`} />

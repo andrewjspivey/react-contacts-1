@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import styled from "styled-components";
 import ContactContext from '../../contexts/ContactContext';
 import ContactCard from "./ContactCard"
+import {deleteContact} from '../../utils/contacts'
 
 const ContactListContainer = styled.div`
     width: 80%;

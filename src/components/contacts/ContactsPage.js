@@ -1,9 +1,14 @@
 import ContactsList from "./ContactsList";
 
-import {useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const ContactsPage = ({ contacts=[] }) => {
-    return <ContactsList contacts={contacts} />
+    return (
+        <div>
+            <p>Have an account?<Link to="/login">Login</Link></p>
+            <ContactsList contacts={contacts} />
+        </div>
+    )
 }
 
 export default ContactsPage;

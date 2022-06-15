@@ -5,12 +5,14 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
 
+
     const loginUser = (username, password) => {
         const validUsername = 'user';
         const validPassword = 'supersecret';
 
         if (username === validUsername && password === validPassword) {
             setUser(username);
+            
         }
     };
 

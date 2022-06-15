@@ -6,7 +6,7 @@ import {useContacts} from '../../contexts/ContactContext'
 const ContactDetailsPage = () => {
     
     const { index } = useParams();
-    const { contacts }= useContacts();
+    const { contacts } = useContacts();
     const contactIndex = parseInt(index);
     const isValidIndex = (!isNaN(contactIndex)) && (contactIndex >= 0) && (contactIndex < contacts.length)
 

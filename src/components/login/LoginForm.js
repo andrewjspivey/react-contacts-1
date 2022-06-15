@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import {useHistory} from 'react-router'
+import {Redirect} from 'react-router-dom'
 
 import AuthContext from '../../contexts/AuthContext';
 
@@ -30,6 +32,7 @@ class LoginForm extends React.Component {
     }
 
     render() {
+
         return (
             <form onSubmit={this.handleFormSubmit}>
                 <div>
